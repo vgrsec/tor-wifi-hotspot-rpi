@@ -1,6 +1,7 @@
 # This file was installed with the RPI-Wireless-Hotspot script
 # For more info see https://github.com/unixabg/RPI-Wireless-Hotspot
-# ------------------------------------------------------------------------
+# And https://github.com/vgrsec/tor-wifi-hotspot-rpi
+# ------------------------------------------------------------------------------
 # Defaults for hostapd initscript
 #
 # See /usr/share/doc/hostapd/README.Debian for information about alternative
