@@ -16,9 +16,12 @@ apt-get dist-upgrade -y
 # configure automatic updates
 echo "== Configuring unattended upgrades"
 apt-get install -y unattended-upgrades apt-listchanges
-cp $PWD/etc/apt/apt.conf.d/20auto-upgrades /etc/apt/apt.conf.d/20auto-upgrades
+cp $PWD/etc/20auto-upgrades /etc/apt/apt.conf.d/20auto-upgrades
 
-# copy configs to relevant directories
+# Install WiFi Hotspot packages 
+apt-get -y install hostapd udhcpd
+
+# copy WiFi Hotspot configs
 cp $PWD/etc/udhcpd.conf /etc/udhcpd.conf
 
 # Copy in the config file to enable udhcpd
@@ -57,7 +60,7 @@ update-rc.d udhcpd enable
 apt-get install tor
 
 # Configure Tor
-cp $PWD/etc/torrc /etc/torrc/torrc
+cp $PWD/etc/torrc /etc/tor/torrc
 
 # Configure iptables for Tor
 iptables -F && iptables -t nat -F
