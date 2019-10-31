@@ -57,7 +57,7 @@ service udhcpd start
 update-rc.d udhcpd enable
 
 # Install Tor
-apt-get install tor
+apt-get install tor -y
 
 # Configure Tor
 cp $PWD/etc/torrc /etc/tor/torrc
