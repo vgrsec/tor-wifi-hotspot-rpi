@@ -37,14 +37,14 @@ systemctl enable udhcpd.service
 cp $PWD/etc/network /etc/network
 
 # Configure SSID
-cp $PWD/etc/hostapd /etc/default/hostapd
+cp $PWD/etc/hostapd /etc/default
 cp $PWD/etc/hostapd.conf /etc/hostapd/hostapd.conf
 
 # Configure NAT
-cp $PWD/etc/sysctl.conf /etc/sysctl.conf
+cp $PWD/etc/sysctl.conf /etc
 
 # Configure iptables
-cp $PWD/etc/iptables.ipv4.nat /etc/iptables.ipv4.nat
+cp $PWD/etc/iptables.ipv4.nat /etc
 touch /var/lib/misc/udhcpd.leases
 
 # Launch Access Point 
@@ -75,16 +75,6 @@ chown debian-tor /var/log/tor/notices.log && chmod 644 /var/log/tor/notices.log
 # Launch Tor
 service tor start
 update-rc.d tor enable
-
-# Install Monit
-apt-get install monit
-
-# Configure Monit
-cp $PWD/etc/monitrc /etc/monit/monitrc
-
-# Launch Monit
-monit reload
-update-rc.d monit enable
 
 sleep 10
 reboot
